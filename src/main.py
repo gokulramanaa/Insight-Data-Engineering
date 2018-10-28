@@ -47,7 +47,7 @@ def parseInputFile():
     
 def top10Occupation(certified_count, occupation_dict):
     global sep
-    sorted_occ_tuple = sorted(occupation_dict.items(), key=lambda kv: kv[1], reverse=True)[:11]
+    sorted_occ_tuple = sorted(occupation_dict.items(), key=lambda kv: (-kv[1],kv[0]))[:11]
     file = open('../output/top_10_occupations.txt','w')
     file.write('TOP_OCCUPATIONS;NUMBER_CERTIFIED_APPLICATIONS;PERCENTAGE')
     for each in sorted_occ_tuple:
@@ -57,7 +57,8 @@ def top10Occupation(certified_count, occupation_dict):
     
 def top10States(certified_count, states_dict):
     global sep
-    sorted_state_tuple = sorted(states_dict.items(), key = lambda kv: kv[1], reverse=True)[:11]
+    sorted_state_tuple = sorted(states_dict.items(), key = lambda kv: (-kv[1],kv[0]))[:11]
+    print(sorted_state_tuple)
     file = open('../output/top_10_states.txt','w')
     file.write('TOP_STATES;NUMBER_CERTIFIED_APPLICATIONS;PERCENTAGE')
     for each in sorted_state_tuple:
