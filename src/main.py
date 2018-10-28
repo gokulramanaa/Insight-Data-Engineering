@@ -1,9 +1,8 @@
 
 def parseInputFile():
-    global certified_count
     occupations, states = {},{}
-    sep = ';'
-    with open('../input/test.csv') as f: s = f.read()
+    with open('../input/H1B_FY_2015.csv', encoding="utf8") as f:
+        s = f.read()
     content = s.split("\n")
     
     for i,j in enumerate(content[0].split(';')):
@@ -17,13 +16,13 @@ def parseInputFile():
             state_ind = i
             
     def parseRow(line):
+        global certified_count, sep
         if line == "":
             return None
-        global certified_count
         fields = line.split(sep)
         status = fields[status_ind].strip()
         status = status.upper()
-        occupation = fields[socode_ind].strip()
+        occupation = fields[socname_ind].strip()
         occupation = occupation.upper()
         state = fields[state_ind].strip()
         state = state.upper()
@@ -46,11 +45,33 @@ def parseInputFile():
     list(map(parseRow,content))
     return  certified_count, occupations, states
     
+def top10Occupation(certified_count, occupation_dict):
+    global sep
+    sorted_occ_tuple = sorted(occupation_dict.items(), key=lambda kv: kv[1], reverse=True)[:11]
+    file = open('../output/top_10_occupations.txt','w')
+    file.write('TOP_OCCUPATIONS;NUMBER_CERTIFIED_APPLICATIONS;PERCENTAGE')
+    for each in sorted_occ_tuple:
+        percentage =  (each[1]/certified_count) * 100
+        file.write('\n' + str(each[0]) + sep + str(each[1]) + sep + str("%.1f" % percentage) + "%")
+    file.close()
+    
+def top10States(certified_count, states_dict):
+    global sep
+    sorted_state_tuple = sorted(states_dict.items(), key = lambda kv: kv[1], reverse=True)[:11]
+    file = open('../output/top_10_states.txt','w')
+    file.write('TOP_STATES;NUMBER_CERTIFIED_APPLICATIONS;PERCENTAGE')
+    for each in sorted_state_tuple:
+        percentage =  (each[1]/certified_count) * 100
+        file.write('\n' + str(each[0]) + sep + str(each[1]) + sep + str("%.1f" % percentage) + "%")
+    file.close()
+    
 def main():
-    global certified_count
+    global certified_count, sep
     certified_count = 0
+    sep = ';'
     certified_count,occupation_dict, states_dict = parseInputFile()
-    print(certified_count,occupation_dict, states_dict)
+    top10Occupation(certified_count, occupation_dict)
+    top10States(certified_count, states_dict)
 
 if __name__ == "__main__":
     main()
