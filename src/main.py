@@ -3,7 +3,7 @@ from Top10list import Top10list
 import sys
     
 def main():
-    #print(sys.argv)
+    print(sys.argv)
     #try:
     #    filename, separator = sys.argv[1],';'
     #except:

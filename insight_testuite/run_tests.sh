@@ -10,6 +10,10 @@ GRADER_ROOT=$(dirname ${BASH_SOURCE})
 
 PROJECT_PATH=${GRADER_ROOT}/..
 
+echo $GRADER_ROOT
+echo $PROJECT_PATH
+echo $pwd
+
 function print_dir_contents {
   local proj_path=$1
   echo "Project contents:"
