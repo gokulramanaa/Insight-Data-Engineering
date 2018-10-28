@@ -1,7 +1,8 @@
 
 def parseInputFile():
     global certified_count
-    occupations, states = dict(), dict()
+    occupations, states = {},{}
+    sep = ';'
     with open('../input/test.csv') as f: s = f.read()
     content = s.split("\n")
     
@@ -15,7 +16,10 @@ def parseInputFile():
         if j == "EMPLOYER_STATE":
             state_ind = i
             
-    def parseRow():
+    def parseRow(line):
+        if line == "":
+            return None
+        global certified_count
         fields = line.split(sep)
         status = fields[status_ind].strip()
         status = status.upper()
@@ -25,13 +29,13 @@ def parseInputFile():
         state = state.upper()
 
         if status == 'CERTIFIED':
-            if occupations.has_key(occupation):
+            if occupation in occupations:
                 tmpsoc = occupations[occupation]
                 tmpsoc +=1
                 occupations[occupation] = tmpsoc
             else:
                 occupations[occupation] = 1 
-            if states.has_key(state):
+            if state in states:
                 tmpsoc = states[state]
                 tmpsoc +=1
                 states[state] = tmpsoc
@@ -39,9 +43,8 @@ def parseInputFile():
                 states[state] = 1 
             certified_count +=1
         
-    list(map(opr,l[:5]))
-
-    return  certified_count, occupation_dict, states_dict
+    list(map(parseRow,content))
+    return  certified_count, occupations, states
     
 def main():
     global certified_count
