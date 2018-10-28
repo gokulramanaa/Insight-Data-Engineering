@@ -17,7 +17,7 @@ class ParseInput():
                 self.status_ind = i
             if j == "SOC_NAME":
                 self.socname_ind = i
-            if j == "EMPLOYER_STATE":
+            if j == "WORKSITE_STATE":
                 self.state_ind = i
     
     def parseRow(self, line):
