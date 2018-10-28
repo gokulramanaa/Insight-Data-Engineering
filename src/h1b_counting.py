@@ -3,7 +3,7 @@ from Top10list import Top10list
 import sys
     
 def main():
-    print(sys.argv)
+    #print(sys.argv)
     #try:
     #    filename, separator = sys.argv[1],';'
     #except:
@@ -13,7 +13,7 @@ def main():
     inputfile, outputoccupation, outputstate = sys.argv[1],sys.argv[2],sys.argv[3]
     InputHolder = ParseInput(inputfile, separator)
     certified_count,occupation_dict, states_dict = InputHolder.getData()
-    print(certified_count)
+    #print(certified_count)
     Toppers = Top10list(certified_count,occupation_dict, states_dict,separator, outputstate,outputoccupation)
     Toppers.top10Occupation()
     Toppers.top10State()
