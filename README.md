@@ -1,6 +1,4 @@
 ## Repo directory structure
-
-The directory structure for your repo should look like this:
 ```
       ├── README.md 
       ├── run.sh
@@ -23,3 +21,6 @@ The directory structure for your repo should look like this:
               |   |   └── top_10_occupations.txt
               |   |   └── top_10_states.txt
 ```
+### Running the Script
+
+We can trigger the python script by running ./run.sh shell script which passes the necessary main python script location(./src/h1b_counting.py), input(./input/h1b_input.csv) and output(./output/*) folders paths as arugments. 
