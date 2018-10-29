@@ -30,3 +30,8 @@ We can trigger the python script by running ./run.sh shell script which passes t
 ### Libraries Imported
 **sys:** To parse the command line system arguments, imported sys library
 
+### Algorithm 
+1. [Problem]
+2. [Input Dataset]
+3. [Instructions]
+4. [Output]
