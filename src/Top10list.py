@@ -1,4 +1,4 @@
-from __future__ import division
+#from __future__ import division
 
 class Top10list():
     def __init__(self,count,occupations, states,sep,stateop,occop):
@@ -14,7 +14,7 @@ class Top10list():
         file = open(self.occupationoutput,'w')
         file.write('TOP_OCCUPATIONS;NUMBER_CERTIFIED_APPLICATIONS;PERCENTAGE' + '\n')
         for each in sorted_occ_tuple:
-            percentage =  (each[1]/self.certified_count) * 100
+            percentage =  (float(each[1])/self.certified_count) * 100
             #print(str("%.1f" % percentage))
             file.write(str(each[0]) + self.sep + str(each[1]) + self.sep + str(percentage) + "%" + '\n')
         file.close()
@@ -24,7 +24,7 @@ class Top10list():
         file = open(self.statesoutput,'w')
         file.write('TOP_STATES;NUMBER_CERTIFIED_APPLICATIONS;PERCENTAGE' + '\n')
         for each in sorted_state_tuple:
-            percentage =  (each[1]/self.certified_count) * 100
+            percentage =  (float(each[1])/self.certified_count) * 100
             #print(str("%.1f" % percentage))
             file.write(str(each[0]) + self.sep + str(each[1]) + self.sep + str(percentage) + "%" + '\n')
         file.close()
