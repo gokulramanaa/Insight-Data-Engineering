@@ -31,7 +31,7 @@ We can trigger the python script by running ./run.sh shell script which passes t
 **sys:** To parse the command line system arguments, imported sys library
 
 ### Algorithm 
-1. [Problem]
-2. [Input Dataset]
-3. [Instructions]
-4. [Output]
+1. Read the raw content of the input csv and stored as string variable. Split the string variable as row by row by new line char ('\n').
+2. Since each line has to be parsed and extracted specific set of fields, instead of for loop, I used map function which does the feature extraction faster than plain for loop 
+3. Once features are extracted appropriate top 10 list are calculated by sorting the features
+4. Wrote the top 10 list to appropriate output files.
