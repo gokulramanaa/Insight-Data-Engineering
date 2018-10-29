@@ -15,11 +15,11 @@
           └── run_tests.sh
           └── tests
               └── test_1
-              |   ├── input
-              |   │   └── h1b_input.csv
-              |   |__ output
-              |   |   └── top_10_occupations.txt
-              |   |   └── top_10_states.txt
+                 ├── input
+                 │   └── h1b_input.csv
+                 |__ output
+                    └── top_10_occupations.txt
+                    └── top_10_states.txt
 ```
 ### Running the Script
 
