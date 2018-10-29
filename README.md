@@ -23,7 +23,10 @@
 ```
 ### Running the Script
 
+python ./src/h1b_counting.py ./input/h1b_input.csv ./output/top_10_occupations.txt ./output/top_10_states.txt
+
 We can trigger the python script by running ./run.sh shell script which passes the necessary main python script location(./src/h1b_counting.py), input(./input/h1b_input.csv) and output(./output/*) folders paths as arugments. 
 
 ### Libraries Imported
 **sys:** To parse the command line system arguments, imported sys library
+
